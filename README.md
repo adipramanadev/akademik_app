@@ -1,17 +1,18 @@
 # Output All Done
 
-![splashscreen](https://github.com/adipramanadev/akademik_app/blob/master/gambar/1.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/2.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/3.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/4.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/5.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/6.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/7.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/8.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/9.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/10.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/11.png)
-![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/12.png)
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/1.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/2.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/3.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/4.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/5.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/6.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/7.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/8.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/9.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/10.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/11.png" width="100%">
+<img src="https://github.com/adipramanadev/akademik_app/blob/master/gambar/12.png" width="100%">
+
 
 # akademik_app
 
