@@ -20,6 +20,12 @@ class AppDrawer extends StatelessWidget {
       Get.offAll(
         const AkunLogin(),
       );
+      Get.snackbar(
+        "Logout Sistem",
+        "Anda berhasil keluar dari sistem!",
+        backgroundColor: Colors.green,
+        colorText: Colors.white,
+      );
     }
 
     return SizedBox(

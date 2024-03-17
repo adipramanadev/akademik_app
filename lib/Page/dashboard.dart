@@ -160,47 +160,6 @@ Future<List<JenkelData>> fetchJenkel() async {
   }
 }
 
-// REQUEST API DATA KOTA ASAL
-// Future<List<KotaData>> fetchKota() async {
-//   SharedPreferences prefs = await SharedPreferences.getInstance();
-//   var token = prefs.getString('tokenJwt') ?? '';
-
-//   try {
-//     final response = await http.get(
-//       Uri.parse(
-//           'https://kptkgowa.adipramanacomputer.com/dashboardapi/countsiswabykota'),
-//       headers: {
-//         'Content-Type': 'application/x-www-form-urlencoded',
-//         'Cookie': token,
-//       },
-//     );
-
-//     if (response.headers['content-type']?.contains('application/json') ??
-//         false) {
-//       final List<dynamic> data = json.decode(response.body);
-//       final kotaData = data.map((item) => KotaData.fromJson(item)).toList();
-//       return kotaData;
-//     } else {
-//       throw Exception('Gagal mengambil data: ${response.statusCode}');
-//     }
-//   } catch (e) {
-//     if (e
-//         .toString()
-//         .contains("Connection closed before full header was received")) {
-//       // Handle the specific error condition here
-//       // You can add custom handling logic for this case
-//       Get.snackbar(
-//         'Gagal meload data',
-//         "Error:{$e} Connection closed before full header was received",
-//         colorText: Colors.white,
-//         backgroundColor: Colors.red,
-//         icon: const Icon(Icons.add_alert),
-//       );
-//     }
-//     throw e;
-//   }
-// }
-
 //Request API Kota Asal
 Future<List<KotaData>> fetchKota() async {
   final dynamic apiUrl = Uri.parse(
@@ -326,6 +285,29 @@ class _DashboardState extends State<Dashboard> {
   late TooltipBehavior _tooltipBehaviorKota;
   late TooltipBehavior _tooltipBehaviorTahun;
 
+  void _loginTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString(
+        'loginTime', DateTime.now().millisecondsSinceEpoch.toString());
+    int loginTime = prefs.getInt('loginTime') ?? 0;
+    int currentTime = DateTime.now().millisecondsSinceEpoch;
+
+    if ((currentTime - loginTime) > 86400000) {
+      // 24 jam dalam milidetik
+      Get.snackbar(
+        'Peringatan',
+        "Sesi login telah berakhir, silahkan login kembali",
+        colorText: Colors.white,
+        backgroundColor: Colors.red,
+        icon: const Icon(Icons.add_alert),
+      );
+      await prefs.remove('tokenJwt'); // Hapus token JWT
+      await prefs.remove('loginTime'); // Hapus waktu login
+      Get.offNamed('/login');
+    }
+    print(loginTime);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -354,6 +336,7 @@ class _DashboardState extends State<Dashboard> {
         );
       },
     );
+    _loginTime();
   }
 
   @override
