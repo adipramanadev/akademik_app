@@ -22,10 +22,6 @@ class _AkunLoginState extends State<AkunLogin> {
 
     final String apiUrl =
         "https://kptkgowa.adipramanacomputer.com/indexapi/login";
-    Map<String, String> postData = {
-      "username": emailController.text,
-      "password": passwordController.text,
-    };
 
     try {
       final response = await http.post(
