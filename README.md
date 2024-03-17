@@ -1,6 +1,6 @@
 # Output All Done
 
-![splashscreen](https://github.com/adipramanadev/akademik_app/blob/master/gambar/1.png| width=100 )
+![splashscreen](https://github.com/adipramanadev/akademik_app/blob/master/gambar/1.png)
 ![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/2.png)
 
 # akademik_app
