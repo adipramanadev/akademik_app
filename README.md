@@ -10,6 +10,8 @@
 ![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/8.png)
 ![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/9.png)
 ![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/10.png)
+![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/11.png)
+![login](https://github.com/adipramanadev/akademik_app/blob/master/gambar/12.png)
 
 # akademik_app
 
