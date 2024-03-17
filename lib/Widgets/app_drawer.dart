@@ -160,6 +160,41 @@ class AppDrawer extends StatelessWidget {
                 ),
               ),
             ),
+            //logout
+            GestureDetector(
+                onTap: () {
+                  _logout();
+                },
+                child: const Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.logout,
+                        color: Color(0xFF57636C),
+                        size: 20,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        child: Text(
+                          "Logout",
+                          textAlign: TextAlign.start,
+                          overflow: TextOverflow.clip,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )),
+
             GestureDetector(
               onTap: () {
                 Get.to(const AppTentang());
