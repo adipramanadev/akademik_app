@@ -401,6 +401,7 @@ class _DashboardState extends State<Dashboard> {
 
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
+      drawerScrimColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         centerTitle: false,
@@ -434,8 +435,9 @@ class _DashboardState extends State<Dashboard> {
           )
         ],
       ),
-      drawer: const Drawer(
+      drawer: Drawer(
         width: 278,
+        backgroundColor: Colors.white,
         child: AppDrawer(),
       ),
       body: Column(
@@ -885,7 +887,7 @@ class _DashboardState extends State<Dashboard> {
                                   ),
                                 ),
                                 tooltipBehavior: _tooltipBehaviorTahun,
-                                series: <ChartSeries>[
+                                series: <CartesianSeries>[
                                   ColumnSeries<TahunData, String>(
                                     name: "Tahun",
                                     dataSource: tahun,
