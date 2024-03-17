@@ -285,27 +285,56 @@ class _DashboardState extends State<Dashboard> {
   late TooltipBehavior _tooltipBehaviorKota;
   late TooltipBehavior _tooltipBehaviorTahun;
 
-  void _loginTime() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString(
-        'loginTime', DateTime.now().millisecondsSinceEpoch.toString());
-    int loginTime = prefs.getInt('loginTime') ?? 0;
-    int currentTime = DateTime.now().millisecondsSinceEpoch;
+  // void _loginTime() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   await prefs.setString(
+  //       'loginTime', DateTime.now().millisecondsSinceEpoch.toString());
+  //   int loginTime = prefs.getInt('loginTime') ?? 0;
+  //   int currentTime = DateTime.now().millisecondsSinceEpoch;
 
-    if ((currentTime - loginTime) > 86400000) {
-      // 24 jam dalam milidetik
-      Get.snackbar(
-        'Peringatan',
-        "Sesi login telah berakhir, silahkan login kembali",
-        colorText: Colors.white,
-        backgroundColor: Colors.red,
-        icon: const Icon(Icons.add_alert),
-      );
-      await prefs.remove('tokenJwt'); // Hapus token JWT
-      await prefs.remove('loginTime'); // Hapus waktu login
-      Get.offNamed('/login');
+  //   if ((currentTime - loginTime) > 86400000) {
+  //     // 24 jam dalam milidetik
+  //     Get.snackbar(
+  //       'Peringatan',
+  //       "Sesi login telah berakhir, silahkan login kembali",
+  //       colorText: Colors.white,
+  //       backgroundColor: Colors.red,
+  //       icon: const Icon(Icons.add_alert),
+  //     );
+  //     await prefs.remove('tokenJwt'); // Hapus token JWT
+  //     await prefs.remove('loginTime'); // Hapus waktu login
+  //     Get.offNamed('/login');
+  //   }
+  //   print(loginTime);
+  // }
+
+  // Fungsi untuk menyimpan waktu login ke SharedPreferences
+  static Future<void> saveLoginTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int loginTime = DateTime.now().millisecondsSinceEpoch;
+    await prefs.setInt('loginTime', loginTime);
+  }
+
+  // Fungsi untuk melakukan logout otomatis jika melewati 1 hari
+  static Future<void> checkLogoutTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? loginTime = prefs.getInt('loginTime');
+
+    if (loginTime != null) {
+      int currentTime = DateTime.now().millisecondsSinceEpoch;
+      int oneDayInMillis = 86400000; // 24 jam dalam milidetik
+      if ((currentTime - loginTime) > oneDayInMillis) {
+        Get.snackbar(
+          'Peringatan',
+          "Sesi login telah berakhir, silahkan login kembali",
+          colorText: Colors.white,
+          backgroundColor: Colors.red,
+          icon: const Icon(Icons.add_alert),
+        );
+        // Lakukan logout otomatis
+        Get.offNamed('/login');
+      }
     }
-    print(loginTime);
   }
 
   @override
@@ -336,7 +365,8 @@ class _DashboardState extends State<Dashboard> {
         );
       },
     );
-    _loginTime();
+    saveLoginTime();
+    checkLogoutTime();
   }
 
   @override
