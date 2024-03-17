@@ -17,7 +17,7 @@ class AppDrawer extends StatelessWidget {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.remove(
           'tokenJwt'); // Menghapus token dari shared preferences / local storage
-      Get.to(
+      Get.offAll(
         const AkunLogin(),
       );
     }
